@@ -17,8 +17,15 @@ public class UiMenuManager : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update()
-    {
-        
+   public void StartNew(){
+        SceneManager.LoadScene(1);
+    }
+
+    public void Exit(){
+        #if UNITY_EDITOR
+        EditorApplication.ExitPlaymode();
+        #else
+        Application.Quit(); // original code to quit Unity player
+        #endif        
     }
 }
